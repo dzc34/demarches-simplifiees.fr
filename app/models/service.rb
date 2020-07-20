@@ -1,7 +1,7 @@
 class Service < ApplicationRecord
   self.ignored_columns = ['siret']
   has_many :procedures
-  belongs_to :administrateur
+  belongs_to :administrateur, optional: false
 
   scope :ordered, -> { order(nom: :asc) }
 
