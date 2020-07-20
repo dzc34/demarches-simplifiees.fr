@@ -30,7 +30,7 @@ class TypeDeChamp < ApplicationRecord
     repetition: 'repetition'
   }
 
-  belongs_to :procedure
+  belongs_to :procedure, optional: false
   belongs_to :revision, class_name: 'ProcedureRevision', optional: true
 
   belongs_to :parent, class_name: 'TypeDeChamp', optional: true
@@ -54,8 +54,8 @@ class TypeDeChamp < ApplicationRecord
   serialize :options, WithIndifferentAccess
 
   after_initialize :set_dynamic_type
+  before_validation :setup_procedure
   after_create :populate_stable_id
-  before_save :setup_procedure
 
   attr_reader :dynamic_type
 
