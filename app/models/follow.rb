@@ -1,6 +1,6 @@
 class Follow < ApplicationRecord
-  belongs_to :instructeur
-  belongs_to :dossier
+  belongs_to :instructeur, optional: false
+  belongs_to :dossier, optional: false
 
   validates :instructeur_id, uniqueness: { scope: [:dossier_id, :unfollowed_at] }
 
