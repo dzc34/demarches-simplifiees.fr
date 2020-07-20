@@ -4,7 +4,7 @@ class ProcedurePresentation < ApplicationRecord
     'self' => ['id', 'state']
   }
 
-  belongs_to :assign_to
+  belongs_to :assign_to, optional: false
 
   delegate :procedure, to: :assign_to
 
