@@ -1,3 +1,3 @@
 class ModuleAPICarto < ApplicationRecord
-  belongs_to :procedure
+  belongs_to :procedure, optional: false
 end
