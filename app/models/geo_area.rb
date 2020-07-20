@@ -1,5 +1,5 @@
 class GeoArea < ApplicationRecord
-  belongs_to :champ
+  belongs_to :champ, optional: false
 
   store :properties, accessors: [
     :description,
