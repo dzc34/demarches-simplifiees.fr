@@ -10,7 +10,7 @@ describe ChampSerializer do
 
       before do
         champ.piece_justificative_file.attach({ filename: __FILE__, io: File.open(__FILE__) })
-        champ.piece_justificative_file.blob.send(:enqueue_virus_scan)
+        champ.piece_justificative_file.save!
       end
       after { champ.piece_justificative_file.purge }
 

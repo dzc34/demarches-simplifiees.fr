@@ -1,8 +1,4 @@
-# TODO: once we're using Rails 6, use the hooks on attachments creation
-# (rather than on blob creation).
-# This will help to avoid cloberring metadata accidentally (as metadata
-# are more stable on attachment creation than on blob creation).
-module BlobVirusScannerConcern
+module AttachmentVirusScannerConcern
   extend ActiveSupport::Concern
 
   included do
@@ -17,7 +13,7 @@ module BlobVirusScannerConcern
   private
 
   def set_pending
-    self.metadata[:virus_scan_result] ||= ActiveStorage::VirusScanner::PENDING
+    blob.metadata[:virus_scan_result] ||= ActiveStorage::VirusScanner::PENDING
   end
 
   def enqueue_virus_scan
