@@ -1,5 +1,4 @@
 class Service < ApplicationRecord
-  self.ignored_columns = ['siret']
   has_many :procedures
   belongs_to :administrateur
 

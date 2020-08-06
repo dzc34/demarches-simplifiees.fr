@@ -1,6 +1,4 @@
 class Commentaire < ApplicationRecord
-  self.ignored_columns = ['file', 'piece_justificative_id']
-
   belongs_to :dossier, inverse_of: :commentaires, touch: true
 
   belongs_to :user
